@@ -1,0 +1,344 @@
+:root {
+    --primary-teal: #0FB9B1;
+    --primary-aqua: #1ABC9C;
+    --white: #FFFFFF;
+    --light-grey: #F5F5F5;
+    --glass-bg: rgba(255, 255, 255, 0.1);
+    --glass-border: rgba(255, 255, 255, 0.2);
+    --glass-blur: blur(15px);
+    --transition-smooth: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: var(--white);
+    background-color: #000;
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+}
+
+/* Background & Overlay */
+.background-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    overflow: hidden;
+}
+
+.hero-bg {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    transition: var(--transition-smooth);
+    animation: kenBurns 20s infinite alternate;
+}
+
+@keyframes kenBurns {
+    from { transform: scale(1); }
+    to { transform: scale(1.1); }
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.1) 50%, rgba(0,0,0,0.5) 100%);
+    z-index: -1;
+}
+
+/* Navbar */
+.navbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 2rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    transition: var(--transition-smooth);
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 4px;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 3rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--white);
+    font-size: 0.9rem;
+    font-weight: 400;
+    letter-spacing: 1px;
+    opacity: 0.7;
+    transition: var(--transition-smooth);
+}
+
+.nav-links a:hover, .nav-links a.active {
+    opacity: 1;
+}
+
+.nav-icons {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.nav-icons i {
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+}
+
+.profile-icon {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: var(--glass-blur);
+    cursor: pointer;
+}
+
+/* Hero Section */
+.hero-section {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 0 5%;
+    position: relative;
+}
+
+.faded-bg-text {
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    transform: translateY(-50%);
+    font-size: 20vw;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.03);
+    z-index: -1;
+    pointer-events: none;
+    letter-spacing: 2rem;
+}
+
+.hero-content {
+    max-width: 600px;
+    z-index: 10;
+}
+
+.hero-title {
+    font-size: 6rem;
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 1s forwards 0.5s;
+    text-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    font-weight: 300;
+    letter-spacing: 2px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1s forwards 0.8s;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.cta-container {
+    margin-top: 3rem;
+    opacity: 0;
+    animation: fadeInUp 1s forwards 1.1s;
+}
+
+.cta-button {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: var(--primary-teal);
+    border: none;
+    color: var(--white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 30px rgba(15, 185, 177, 0.4);
+}
+
+.cta-button i {
+    width: 30px;
+    height: 30px;
+}
+
+/* Slider */
+.slider-container {
+    position: absolute;
+    right: 0;
+    bottom: 15%;
+    width: 50%;
+    z-index: 20;
+    padding-left: 2rem;
+}
+
+.slider {
+    display: flex;
+    gap: 2rem;
+    padding-right: 5%;
+}
+
+.card {
+    min-width: 300px;
+    height: 420px;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: var(--glass-blur);
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    flex-shrink: 0;
+}
+
+.card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.6;
+    transition: var(--transition-smooth);
+}
+
+.card-content {
+    position: absolute;
+    bottom: 2rem;
+    left: 2rem;
+    z-index: 2;
+}
+
+.card h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+}
+
+.card p {
+    font-size: 0.8rem;
+    opacity: 0.7;
+}
+
+.card:hover {
+    transform: translateY(-15px);
+    border-color: var(--primary-teal);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+}
+
+.card:hover img {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+.card.active {
+    border-color: var(--primary-teal);
+}
+
+/* Pagination */
+.pagination {
+    position: absolute;
+    bottom: 5%;
+    right: 5%;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    z-index: 30;
+}
+
+.current-page {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.total-pages {
+    font-size: 0.9rem;
+    opacity: 0.5;
+}
+
+.progress-bar {
+    width: 150px;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.2);
+    position: relative;
+}
+
+.progress-fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 33.33%;
+    background: var(--primary-teal);
+    transition: var(--transition-smooth);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .hero-title { font-size: 4rem; }
+    .slider-container { width: 60%; }
+}
+
+@media (max-width: 768px) {
+    .navbar { padding: 1.5rem 5%; }
+    .nav-links { display: none; }
+    .hero-title { font-size: 3rem; }
+    .slider-container { 
+        position: relative;
+        width: 100%;
+        bottom: 0;
+        margin-top: 4rem;
+        padding-left: 5%;
+    }
+    .hero-section {
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        padding-top: 100px;
+    }
+    .faded-bg-text { display: none; }
+    .pagination { bottom: 2rem; }
+}
