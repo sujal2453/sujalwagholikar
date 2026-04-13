@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VOYAGE | Explore the Italian Alps</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <div class="background-container">
+        <div class="hero-bg" style="background-image: url('assets/hero.jpg');"></div>
+        <div class="overlay"></div>
+    </div>
+
+    <nav class="navbar">
+        <div class="logo">VOYAGE</div>
+        <ul class="nav-links">
+            <li><a href="#" class="active">Home</a></li>
+            <li><a href="#">Destinations</a></li>
+            <li><a href="#">Stories</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+        <div class="nav-icons">
+            <i data-lucide="search"></i>
+            <div class="profile-icon"></div>
+        </div>
+    </nav>
+
+    <main class="hero-section">
+        <div class="faded-bg-text">VOYAGE</div>
+        
+        <div class="hero-content">
+            <div class="text-reveal">
+                <h1 class="hero-title">Explore the<br>Italian Alps</h1>
+                <p class="hero-subtitle">Pragser Wildsee, Italy</p>
+            </div>
+            
+            <div class="cta-container">
+                <button class="cta-button">
+                    <i data-lucide="arrow-right"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="slider-container">
+            <div class="slider">
+                <div class="card active">
+                    <img src="assets/pragser-wildsee.jpg" alt="Pragser Wildsee">
+                    <div class="card-content">
+                        <h3>Pragser Wildsee</h3>
+                        <p>Italy</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="assets/swiss-alps.jpg" alt="Swiss Alps">
+                    <div class="card-content">
+                        <h3>Swiss Alps</h3>
+                        <p>Switzerland</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="assets/lake-como.jpg" alt="Lake Como">
+                    <div class="card-content">
+                        <h3>Lake Como</h3>
+                        <p>Italy</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="pagination">
+            <span class="current-page">01</span>
+            <div class="progress-bar">
+                <div class="progress-fill"></div>
+            </div>
+            <span class="total-pages">03</span>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
